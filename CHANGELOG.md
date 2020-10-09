@@ -4,7 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-<!-- ## Unreleased -->
+## Unreleased
+
+### Fixed
+
+- `textfield`
+  - inconsistencies of autovalidation when it's turned off.
+
+### Changed
+
+- `textfield`
+  - `autoValidate` now validates on value change rather than input
 
 ## [v0.19.1] - 2020-10-08
 

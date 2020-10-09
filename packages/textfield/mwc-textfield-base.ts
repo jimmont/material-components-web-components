@@ -300,6 +300,10 @@ export abstract class TextFieldBase extends FormElement {
     if (changedProperties.has('value') &&
         changedProperties.get('value') !== undefined) {
       this.mdcFoundation.setValue(this.value);
+
+      if (this.autoValidate) {
+        this.reportValidity();
+      }
     }
   }
 
@@ -525,10 +529,6 @@ export abstract class TextFieldBase extends FormElement {
   @eventOptions({passive: true})
   protected handleInputChange() {
     this.value = this.formElement.value;
-
-    if (this.autoValidate) {
-      this.reportValidity();
-    }
   }
 
   protected createFoundation() {
@@ -646,6 +646,9 @@ export abstract class TextFieldBase extends FormElement {
     }
 
     super.firstUpdated();
+
+    this.mdcFoundation.setAutovalidate(this.autoValidate);
+
 
     if (this.validateOnInitialRender) {
       this.reportValidity();
